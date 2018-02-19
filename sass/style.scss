@@ -1,0 +1,309 @@
+$font1: 'Palanquin Dark', sans-serif;
+$font2: 'Leckerli One', cursive;
+$color1: #fff;
+$color2: #000;
+$color-grey: #4F5760;
+@mixin flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+* {
+	box-sizing: border-box;
+}
+body {
+	max-width: 1600px;
+	margin: 0 auto;
+	padding: 0;
+	font-family: $font1;
+}
+
+/*...........NAVIGATION...........*/
+nav {
+	width: 100%;
+	height: 50px;
+	text-transform: uppercase;
+	border-bottom: 1px solid $color2;
+	background-color: $color1;
+	color: $color2;
+	position: fixed;
+	z-index: 99;
+	top: 75px;
+	ul {
+		width: 75%;
+		margin: 0 auto;
+		padding: 0;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		li {
+			list-style-type: none;
+			cursor: pointer;
+			display: inline-block;
+			padding: 10px;
+			&:hover {
+				text-decoration: underline;
+			}
+			a {
+				text-decoration: none;
+				color: $color2;
+			}
+		}
+	}
+}
+.toggle {
+	display: none;
+	width: 100%;
+	text-align: center;
+	cursor: pointer;
+	transition: 0.5s;
+	p {
+		margin:0;
+		line-height: 50px;
+	}
+	&:hover {
+		color: #5f8723;
+	}
+}
+
+/*.........HEADER..............*/
+
+header {
+	background-color: $color2;
+	height: 75px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 99;
+	h1 {
+	font-family: $font2;
+	text-align: center;
+	color: $color1;
+	text-transform: uppercase;
+	margin: 0;
+	font-size: 40px;
+	line-height: 75px;
+	}
+}
+
+main {
+	background-image: url(../images/smoothie_main.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+	@include flex;
+	flex-direction: column;
+
+	.hero {
+	background-color: $color2;
+	color: $color1;
+	width: 600px;
+	height: 300px;
+	text-align: center;
+	padding: 20px;
+	position: relative;
+	}
+	.dots {
+	cursor: pointer;
+	position: absolute;
+	z-index: 10;
+	bottom: 10px;
+	left: 42%;
+	button {
+		width: 25px;
+		height: 25px;
+		border: none;
+		background-color: $color1;
+		transition: 0.5s;
+		border-radius: 50%;
+		margin: 3px;
+		cursor: pointer;
+		&:hover {
+			background-color: #5f8723;
+			}
+		}
+	}
+}
+.text {
+	display: none;
+	&:first-child {
+		display: block;
+	}
+}
+.bg {
+	background-color: #5f8723 !important;
+}
+
+/*...........SMOOTHIE EXPERIENCE SECTION..............*/
+
+.smoothie_experience {
+	@include flex;
+	flex-direction: column;
+	margin: 2%;
+	.square {
+		@include flex;
+		flex-wrap: wrap;
+	}
+	h2 {
+		padding: 20px;
+		text-transform: uppercase;
+	}
+	.square_container {
+		@include flex;
+		flex-direction: column;
+		max-width: 400px;
+		margin: 20px 40px;
+		text-align: center;
+		img {
+			width: 250px;
+			max-height: 250px;
+		}
+	}
+}
+
+/*..............ARTICLES SECTION.............*/
+h2 {
+	text-transform: uppercase;
+	text-align: center;
+}
+article {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-bottom: 1px solid black;
+	text-align: right;
+	
+	img {
+		width: 500px;
+		height: 400px;
+	}
+	&:nth-child(even) {
+		display: flex;
+		flex-direction: row-reverse;
+		text-align: left;
+	}
+	.text_box {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 5px 20px;
+	}
+}
+
+/*..............SUBSCRIBE.................*/
+
+.subscribe {
+	@include flex;
+	flex-direction: column;
+	text-transform: uppercase;
+	background-color: $color2;
+	color: $color1;
+	margin: 0 auto;
+	form {
+		margin-bottom: 35px;
+		input {
+		border: none;
+		height: 40px;
+		width: 250px;
+		&:first-child {
+			padding: 20px;
+		}
+		&:last-child {
+			background-color: #5f8723;
+			text-transform: uppercase;
+			font-weight: bold;
+			cursor: pointer;
+			transition: 0.5s;
+			&:hover {
+				background-color: #B896A7;			}
+			}
+		}
+	}
+}
+
+/*............FOOTER.............*/
+
+footer {
+	height: 50px;
+	text-align: center;
+	color: $color1;
+	background-color: $color2;
+	border-top: 1px solid $color1;
+	line-height: 50px;
+	p {
+		margin: 0;
+		padding: 0;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+
+h2 {
+  text-align: center;
+  }
+  .toggle {
+    display: block; 
+    z-index: 99;
+}
+
+ /*.....NAV...*/
+nav {
+	ul {
+		display: none;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 0;
+		li {
+			width: 100vw;
+			display: block;
+			text-align: center;
+			background-color:#5F8723;
+		}
+	}
+}
+
+/*....HEADER.....*/
+header{
+	h1{
+		font-size: 26px;
+	}
+}
+.active {
+    display: block; 
+    margin-top: 50px;
+}
+.hero {
+	max-width: 380px;
+	font-size: 15px;
+	.dots {
+		left:39%;
+	}
+	.but {
+		width: 20px;
+		height: 20px;
+		}
+	}
+/*....ARTICLES......*/
+article {
+	flex-direction: column;
+	text-align: center;
+	img {
+		width: 300px;
+		height: 300px;
+	}
+	&:nth-child(even) {
+		flex-direction: column;
+		text-align: center;
+	}
+}
+/*..SUBSCRIBE....*/
+.subscribe {
+   	text-align: center;
+    }
+}
+
+
